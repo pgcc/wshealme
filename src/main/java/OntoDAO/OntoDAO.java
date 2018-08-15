@@ -76,6 +76,7 @@ public class OntoDAO {
         query.addEntity(PlatformModel.class);
         List<PlatformModel> platforms = query.list();
         trans.commit();
+        session.disconnect();
         session.close();
         return platforms;
     }      
@@ -987,6 +988,7 @@ public class OntoDAO {
         
         Serializable save = session.save(model); 
         trans.commit(); 
+        session.disconnect();
         session.close();
         
         if(save != null){
@@ -1024,11 +1026,13 @@ public class OntoDAO {
             model.setName(upModel.getName());
             session.merge(model);
             trans.commit();
+            session.disconnect();
             session.close();
             return "ok";
             
         }else{
             trans.commit();
+            session.disconnect();
             session.close();
             return null;
         }
@@ -1048,6 +1052,7 @@ public class OntoDAO {
         query.setParameter("name", name);
         List<PlatformModel> platforms = query.list();
         trans.commit();
+        session.disconnect();
         session.close();
         
         for(int i = 0; i < platforms.size(); i++){
@@ -1373,8 +1378,6 @@ public class OntoDAO {
         infmodel.prepare();
         
         return infmodel;     
-        
-        /*OntoConnection.gravaOnto(sec);*/
     }
     
     
