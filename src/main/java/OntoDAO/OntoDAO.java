@@ -72,7 +72,7 @@ public class OntoDAO {
         query.addEntity(PlatformModel.class);
         List<PlatformModel> platforms = query.list();
         trans.commit();
-        factory.close();
+        //factory.close();
         session.flush();
         session.close();
         session.disconnect();
