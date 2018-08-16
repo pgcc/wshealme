@@ -72,10 +72,10 @@ public class OntoDAO {
         query.addEntity(PlatformModel.class);
         List<PlatformModel> platforms = query.list();
         trans.commit();
-        //factory.close();
         session.flush();
-        session.close();
         session.disconnect();
+        session.close();
+        factory.close();
         return platforms;
     }      
     
@@ -1026,18 +1026,18 @@ public class OntoDAO {
             model.setName(upModel.getName());
             session.merge(model);
             trans.commit();
-             factory.close();
             session.flush();
-            session.close();
             session.disconnect();
+            session.close();
+            factory.close();
             return "ok";
             
         }else{
             trans.commit();
-            factory.close();
             session.flush();
-            session.close();
             session.disconnect();
+            session.close();
+            factory.close();
             return null;
         }
         
@@ -1056,10 +1056,10 @@ public class OntoDAO {
         query.setParameter("name", name);
         List<PlatformModel> platforms = query.list();
         trans.commit();
-        factory.close();
         session.flush();
-        session.close();
         session.disconnect();
+        session.close();
+        factory.close();
         
         for(int i = 0; i < platforms.size(); i++){
             if(platforms.get(i).getName().equals(name)){
