@@ -986,10 +986,10 @@ public class OntoDAO {
         
         Serializable save = session.save(model); 
         trans.commit(); 
-        factory.close();
         session.flush();
-        session.close();
         session.disconnect();
+        session.close();
+        factory.close();
         
         if(save != null){
             return "ok";
