@@ -30,10 +30,6 @@ import com.hp.hpl.jena.reasoner.Reasoner;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javassist.compiler.TokenId;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -76,8 +72,10 @@ public class OntoDAO {
         query.addEntity(PlatformModel.class);
         List<PlatformModel> platforms = query.list();
         trans.commit();
-        session.disconnect();
+        factory.close();
+        session.flush();
         session.close();
+        session.disconnect();
         return platforms;
     }      
     
@@ -988,8 +986,10 @@ public class OntoDAO {
         
         Serializable save = session.save(model); 
         trans.commit(); 
-        session.disconnect();
+        factory.close();
+        session.flush();
         session.close();
+        session.disconnect();
         
         if(save != null){
             return "ok";
@@ -1026,14 +1026,18 @@ public class OntoDAO {
             model.setName(upModel.getName());
             session.merge(model);
             trans.commit();
-            session.disconnect();
+             factory.close();
+            session.flush();
             session.close();
+            session.disconnect();
             return "ok";
             
         }else{
             trans.commit();
-            session.disconnect();
+            factory.close();
+            session.flush();
             session.close();
+            session.disconnect();
             return null;
         }
         
@@ -1052,8 +1056,10 @@ public class OntoDAO {
         query.setParameter("name", name);
         List<PlatformModel> platforms = query.list();
         trans.commit();
-        session.disconnect();
+        factory.close();
+        session.flush();
         session.close();
+        session.disconnect();
         
         for(int i = 0; i < platforms.size(); i++){
             if(platforms.get(i).getName().equals(name)){

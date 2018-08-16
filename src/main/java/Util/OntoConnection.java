@@ -31,8 +31,8 @@ import org.mindswap.pellet.jena.PelletReasonerFactory;
  */
 public class OntoConnection {
     
-    static final String OntoHealth = "/opt/tomcat/webapps/Ontologies/ontohealth.owl";
-    //static final String OntoHealth = "C:\\OntoHealth\\OntoHealth.owl";
+    //static final String OntoHealth = "/opt/tomcat/webapps/Ontologies/ontohealth.owl";
+    static final String OntoHealth = "C:\\OntoHealth\\OntoHealth.owl";
    
     public static InfModel OntoConnection(){
         

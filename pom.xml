@@ -40,6 +40,12 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.2</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -87,7 +93,7 @@
             <version>1.19.4</version>
         </dependency>
 		
-		 <!--<dependency>
+        <!--<dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>apache-jena</artifactId>
             <version>3.5.0</version>
@@ -108,12 +114,21 @@
             <artifactId>xml-apis</artifactId>
             <version>1.4.01</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+            <type>jar</type>
+        </dependency>-->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
+            <type>jar</type>
         </dependency>
+
 
     </dependencies>
 
